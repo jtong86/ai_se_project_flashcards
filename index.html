@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="A responsive app to help students study"
+    />
+    <meta name="keywords" content="flashcards, education, studying" />
+    <meta name="author" content="Jason Tong" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/vendor/normalize.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Flash Cards</title>
+  </head>
+
+  <body class="page">
+    <header class="header">
+      <h1 class="header__title">
+        <a href="#home" class="header__link">Flash Cards</a>
+      </h1>
+
+      <nav class="nav">
+        <ul class="nav__links">
+          <li>
+            <a href="#home" class="nav__link">My Decks</a>
+          </li>
+          <li>
+            <a href="#about" class="nav__link">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page__main-content">
+      <!-- HOME / MY DECKS -->
+      <section class="decks" id="home">
+        <h2 class="decks__title">My Decks</h2>
+
+        <ul class="decks__list"></ul>
+
+        <button
+          class="decks__new-deck-btn"
+          type="button"
+          aria-label="Create a new deck"
+        >
+          + New Deck
+        </button>
+      </section>
+
+      <!-- CAROUSEL -->
+      <section class="carousel">
+        <h2 class="carousel__title">HTML Tags Deck &middot; 1/10</h2>
+
+        <div class="carousel__row">
+          <button
+            type="button"
+            aria-label="Go to previous card in deck"
+            class="carousel__btn carousel__btn_type_left"
+          ></button>
+
+          <div class="carousel__card">
+            <p class="carousel__card-text">&lt;body&gt;&lt;/body&gt;</p>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Go to next card in deck"
+            class="carousel__btn carousel__btn_type_right"
+          ></button>
+        </div>
+
+        <button
+          type="button"
+          aria-label="Flip current card"
+          class="carousel__btn carousel__btn_type_flip"
+        ></button>
+      </section>
+
+      <!-- 404 -->
+      <section class="not-found" id="not-found">
+        <h2 class="not-found__title">404 Not Found</h2>
+
+        <p class="not-found__text">
+          The page you're looking for doesn't exist.
+        </p>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about" id="about">
+        <h2 class="about__title">About</h2>
+
+        <p class="about__text">
+          Flash Cards is a responsive app designed to help students study
+          and review important information using flashcards.
+        </p>
+      </section>
+    </main>
+
+    <!-- DECK TEMPLATE -->
+    <template id="deck-template">
+      <li>
+        <article class="deck deck_color_green">
+          <a
+            class="deck__link"
+            href="#"
+            aria-label="Open deck"
+          ></a>
+
+          <h3 class="deck__title"></h3>
+
+          <div class="deck__footer">
+            <p class="deck__card-count"></p>
+
+            <button
+              class="deck__delete-btn"
+              type="button"
+              aria-label="Delete deck"
+            >
+              <img
+                class="deck__delete-icon"
+                src="assets/images/delete.svg"
+                alt="Trash icon"
+              />
+            </button>
+          </div>
+        </article>
+      </li>
+    </template>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2026 Jason Tong</p>
+    </footer>
+
+    <script type="module" src="assets/js/index.js"></script>
+  </body>
+</html>
