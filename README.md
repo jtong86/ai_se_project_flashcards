@@ -4,6 +4,12 @@ Flash Cards is a responsive study application created as part of TripleTen's AI-
 
 Each deck contains a collection of questions and answers. Users can navigate between cards, flip a card to reveal its answer, and select different decks from the main page.
 
+## Live Demo
+
+View the deployed project here:
+
+[Flash Cards](https://jtong86.github.io/ai_se_project_flashcards/)
+
 ## Features
 
 * Displays multiple flashcard decks
@@ -29,8 +35,13 @@ Each deck contains a collection of questions and answers. Users can navigate bet
 * BEM methodology
 * Git
 * GitHub
+* GitHub Pages
 
 ## Deployment
+
+The project is deployed using GitHub Pages:
+
+https://jtong86.github.io/ai_se_project_flashcards/
 
 To run the project locally:
 
