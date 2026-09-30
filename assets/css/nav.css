@@ -1,0 +1,23 @@
+.nav {
+  margin-left: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  text-decoration: underline;
+}
