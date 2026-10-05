@@ -21,7 +21,6 @@
       rel="stylesheet"
     />
 
-    
     <link rel="stylesheet" href="assets/css/index.css" />
 
     <title>Flash Cards</title>
@@ -47,13 +46,13 @@
 
     <main class="page__main-content">
       <!-- HOME / MY DECKS -->
-      <section class="decks" id="home">
-        <h2 class="decks__title">My Decks</h2>
+      <section class="gallery" id="home">
+        <h2 class="gallery__title">My Decks</h2>
 
-        <ul class="decks__list"></ul>
+        <ul class="gallery__list"></ul>
 
         <button
-          class="decks__new-deck-btn"
+          class="gallery__new-card-btn"
           type="button"
           aria-label="Create a new deck"
         >
@@ -63,7 +62,9 @@
 
       <!-- CAROUSEL -->
       <section class="carousel">
-        <h2 class="carousel__title">HTML Tags Deck &middot; 1/10</h2>
+        <h2 class="carousel__title">
+          HTML Tags Deck &middot; 1/10
+        </h2>
 
         <div class="carousel__row">
           <button
@@ -73,7 +74,9 @@
           ></button>
 
           <div class="carousel__card">
-            <p class="carousel__card-text">&lt;body&gt;&lt;/body&gt;</p>
+            <p class="carousel__card-text">
+              &lt;body&gt;&lt;/body&gt;
+            </p>
           </div>
 
           <button
@@ -110,28 +113,28 @@
       </section>
     </main>
 
-    <!-- DECK TEMPLATE -->
+    <!-- CARD TEMPLATE -->
     <template id="deck-template">
       <li>
-        <article class="deck deck_color_green">
+        <article class="card card_color_green">
           <a
-            class="deck__link"
+            class="card__link"
             href="#"
             aria-label="Open deck"
           ></a>
 
-          <h3 class="deck__title"></h3>
+          <h3 class="card__title"></h3>
 
-          <div class="deck__footer">
-            <p class="deck__card-count"></p>
+          <div class="card__footer">
+            <p class="card__card-count"></p>
 
             <button
-              class="deck__delete-btn"
+              class="card__delete-btn"
               type="button"
               aria-label="Delete deck"
             >
               <img
-                class="deck__delete-icon"
+                class="card__delete-icon"
                 src="assets/images/delete.svg"
                 alt="Trash icon"
               />

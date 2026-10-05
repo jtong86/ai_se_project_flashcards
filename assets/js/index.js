@@ -3,10 +3,10 @@ import { hexToString } from "./colors.js";
 import { renderCarouselView } from "./carousel.js";
 
 const deckTemplateEl = document.querySelector("#deck-template");
-const deckListEl = document.querySelector(".decks__list");
+const deckListEl = document.querySelector(".gallery__list");
 const mainContentEl = document.querySelector(".page__main-content");
 
-const homeSectionEl = document.querySelector(".decks");
+const homeSectionEl = document.querySelector(".gallery");
 const carouselSectionEl = document.querySelector(".carousel");
 const notFoundSectionEl = document.querySelector(".not-found");
 const aboutSectionEl = document.querySelector(".about");
@@ -16,22 +16,23 @@ function createDeckEl(item) {
     .querySelector("li")
     .cloneNode(true);
 
-  const deckEl = cloneEl.querySelector(".deck");
-  const titleEl = cloneEl.querySelector(".deck__title");
-  const cardCountEl = cloneEl.querySelector(".deck__card-count");
-  const deleteBtnEl = cloneEl.querySelector(".deck__delete-btn");
-  const deleteIconEl = cloneEl.querySelector(".deck__delete-icon");
-  const deckLinkEl = cloneEl.querySelector(".deck__link");
+  const deckEl = cloneEl.querySelector(".card");
+  const titleEl = cloneEl.querySelector(".card__title");
+  const cardCountEl = cloneEl.querySelector(".card__card-count");
+  const deleteBtnEl = cloneEl.querySelector(".card__delete-btn");
+  const deleteIconEl = cloneEl.querySelector(".card__delete-icon");
+  const deckLinkEl = cloneEl.querySelector(".card__link");
 
   titleEl.textContent = item.name;
   cardCountEl.textContent = `${item.cards.length} Cards`;
 
   const colorName = hexToString(item.color);
 
-  deckEl.classList.remove("deck_color_green");
-  deckEl.classList.add(`deck_color_${colorName}`);
+  deckEl.classList.remove("card_color_green");
+  deckEl.classList.add(`card_color_${colorName}`);
 
   deckLinkEl.href = `#carousel/${item.id}`;
+
   deckLinkEl.setAttribute(
     "aria-label",
     `Open ${item.name} deck`

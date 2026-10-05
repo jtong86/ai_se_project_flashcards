@@ -1,13 +1,14 @@
 .carousel {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
 
 .carousel__title {
-  margin: 0 0 20px;
-  font-size: 14px;
-  font-weight: 400;
+  margin: 0 0 40px;
+  color: #1a1a1a;
+  font-size: 40px;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -16,24 +17,23 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
 .carousel__card {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 568px;
-  height: 400px;
+  width: 500px;
+  height: 300px;
+  padding: 20px;
   border-radius: 20px;
-  background-color: #64d583;
+  background-color: #fff;
 }
 
 .carousel__card-text {
   margin: 0;
-  padding: 20px;
   color: #1a1a1a;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
@@ -96,6 +96,7 @@
 }
 
 .carousel__btn_type_flip {
+  margin-top: 20px;
   background-image: url("../images/flip.svg");
   background-size: 28px 28px;
 }
