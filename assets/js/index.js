@@ -1,15 +1,27 @@
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colors.js";
 import { renderCarouselView } from "./carousel.js";
+import { renderDeckView } from "./deck-view.js";
 
 const deckTemplateEl = document.querySelector("#deck-template");
-const deckListEl = document.querySelector(".gallery__list");
-const mainContentEl = document.querySelector(".page__main-content");
 
-const homeSectionEl = document.querySelector(".gallery");
+const homeSectionEl = document.querySelector("#home");
+const homeDeckListEl =
+  homeSectionEl.querySelector(".gallery__list");
+
+const deckViewSectionEl = document.querySelector("#deck-view");
+const practiceBtnEl =
+  deckViewSectionEl.querySelector(".gallery__practice-btn");
+
+const mainContentEl = document.querySelector(
+  ".page__main-content"
+);
+
 const carouselSectionEl = document.querySelector(".carousel");
 const notFoundSectionEl = document.querySelector(".not-found");
 const aboutSectionEl = document.querySelector(".about");
+
+let currentDeck = null;
 
 function createDeckEl(item) {
   const cloneEl = deckTemplateEl.content
@@ -18,9 +30,12 @@ function createDeckEl(item) {
 
   const deckEl = cloneEl.querySelector(".card");
   const titleEl = cloneEl.querySelector(".card__title");
-  const cardCountEl = cloneEl.querySelector(".card__card-count");
-  const deleteBtnEl = cloneEl.querySelector(".card__delete-btn");
-  const deleteIconEl = cloneEl.querySelector(".card__delete-icon");
+  const cardCountEl = cloneEl.querySelector(
+    ".card__card-count"
+  );
+  const deleteBtnEl = cloneEl.querySelector(
+    ".card__btn_type_delete"
+  );
   const deckLinkEl = cloneEl.querySelector(".card__link");
 
   titleEl.textContent = item.name;
@@ -29,9 +44,12 @@ function createDeckEl(item) {
   const colorName = hexToString(item.color);
 
   deckEl.classList.remove("card_color_green");
-  deckEl.classList.add(`card_color_${colorName}`);
 
-  deckLinkEl.href = `#carousel/${item.id}`;
+  if (colorName) {
+    deckEl.classList.add(`card_color_${colorName}`);
+  }
+
+  deckLinkEl.href = `#deck/${item.id}`;
 
   deckLinkEl.setAttribute(
     "aria-label",
@@ -43,11 +61,6 @@ function createDeckEl(item) {
     `Delete ${item.name} deck`
   );
 
-  deleteIconEl.setAttribute(
-    "alt",
-    `Trash icon for ${item.name} deck`
-  );
-
   deleteBtnEl.addEventListener("click", () => {
     cloneEl.remove();
   });
@@ -57,13 +70,18 @@ function createDeckEl(item) {
 
 function renderDeckEl(item) {
   const deckEl = createDeckEl(item);
-  deckListEl.prepend(deckEl);
+  homeDeckListEl.prepend(deckEl);
 }
 
-decks.forEach(renderDeckEl);
+function renderHomeView() {
+  homeDeckListEl.innerHTML = "";
+
+  decks.forEach(renderDeckEl);
+}
 
 function hideAllSections() {
   homeSectionEl.style.display = "none";
+  deckViewSectionEl.style.display = "none";
   carouselSectionEl.style.display = "none";
   notFoundSectionEl.style.display = "none";
   aboutSectionEl.style.display = "none";
@@ -79,12 +97,28 @@ function router() {
   );
 
   if (hash === "" || hash === "home") {
+    currentDeck = null;
+
     homeSectionEl.style.display = "block";
+    renderHomeView();
   } else if (hash === "about") {
+    currentDeck = null;
+
     aboutSectionEl.style.display = "block";
+  } else if (hash.startsWith("deck/")) {
+    const deckId = hash.split("/")[1];
+    currentDeck = getDeckByID(deckId);
+
+    if (currentDeck) {
+      deckViewSectionEl.style.display = "block";
+      renderDeckView(currentDeck);
+    } else {
+      currentDeck = null;
+      notFoundSectionEl.style.display = "block";
+    }
   } else if (hash.startsWith("carousel/")) {
     const deckId = hash.split("/")[1];
-    const currentDeck = getDeckByID(deckId);
+    currentDeck = getDeckByID(deckId);
 
     if (currentDeck) {
       carouselSectionEl.style.display = "flex";
@@ -95,13 +129,22 @@ function router() {
 
       renderCarouselView(currentDeck);
     } else {
+      currentDeck = null;
       notFoundSectionEl.style.display = "block";
     }
   } else {
+    currentDeck = null;
     notFoundSectionEl.style.display = "block";
   }
 }
 
+practiceBtnEl.addEventListener("click", () => {
+  if (currentDeck) {
+    window.location.hash = `carousel/${currentDeck.id}`;
+  }
+});
+
+renderHomeView();
 router();
 
 window.addEventListener("hashchange", router);

@@ -1,3 +1,13 @@
+.gallery {
+  display: none;
+}
+
+.gallery__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .gallery__title {
   margin: 0 0 20px;
   font-size: 40px;
@@ -39,4 +49,22 @@
 .gallery__new-card-btn:hover {
   background-color: #c5c5c5;
   color: #1a1a1a;
+}
+
+.gallery__practice-btn {
+  height: 44px;
+  margin: 0 0 20px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gallery__practice-btn:hover {
+  opacity: 80%;
 }

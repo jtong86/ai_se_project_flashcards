@@ -45,15 +45,15 @@
     </header>
 
     <main class="page__main-content">
-      <!-- HOME / MY DECKS -->
+      <!-- HOME -->
       <section class="gallery" id="home">
         <h2 class="gallery__title">My Decks</h2>
 
         <ul class="gallery__list"></ul>
 
         <button
-          class="gallery__new-card-btn"
           type="button"
+          class="gallery__new-card-btn"
           aria-label="Create a new deck"
         >
           + New Deck
@@ -66,8 +66,8 @@
           <h2 class="gallery__title"></h2>
 
           <button
-            class="gallery__practice-btn"
             type="button"
+            class="gallery__practice-btn"
           >
             Practice
           </button>
@@ -76,8 +76,8 @@
         <ul class="gallery__list"></ul>
 
         <button
-          class="gallery__new-card-btn"
           type="button"
+          class="gallery__new-card-btn"
           aria-label="Create a new card"
         >
           + New Card
@@ -86,9 +86,7 @@
 
       <!-- CAROUSEL -->
       <section class="carousel">
-        <h2 class="carousel__title">
-          HTML Tags Deck &middot; 1/10
-        </h2>
+        <h2 class="carousel__title"></h2>
 
         <div class="carousel__row">
           <button
@@ -98,9 +96,7 @@
           ></button>
 
           <div class="carousel__card">
-            <p class="carousel__card-text">
-              &lt;body&gt;&lt;/body&gt;
-            </p>
+            <p class="carousel__card-text"></p>
           </div>
 
           <button
@@ -117,7 +113,7 @@
         ></button>
       </section>
 
-      <!-- 404 -->
+      <!-- NOT FOUND -->
       <section class="not-found" id="not-found">
         <h2 class="not-found__title">404 Not Found</h2>
 
@@ -142,8 +138,8 @@
       <li>
         <article class="card card_color_green">
           <a
-            class="card__link"
             href="#"
+            class="card__link"
             aria-label="Open deck"
           ></a>
 
@@ -153,22 +149,16 @@
             <p class="card__card-count"></p>
 
             <button
-              class="card__delete-btn"
               type="button"
+              class="card__btn card__btn_type_delete"
               aria-label="Delete deck"
-            >
-              <img
-                class="card__delete-icon"
-                src="assets/images/delete.svg"
-                alt="Trash icon"
-              />
-            </button>
+            ></button>
           </div>
         </article>
       </li>
     </template>
 
-    <!-- FLASHCARD TEMPLATE -->
+    <!-- CARD TEMPLATE -->
     <template id="card-template">
       <li>
         <article class="card card_color_green">
@@ -176,24 +166,16 @@
 
           <div class="card__footer">
             <button
-              class="card__flip-btn"
               type="button"
+              class="card__btn card__btn_type_flip"
               aria-label="Flip card"
-            >
-              Flip
-            </button>
+            ></button>
 
             <button
-              class="card__delete-btn"
               type="button"
+              class="card__btn card__btn_type_delete"
               aria-label="Delete card"
-            >
-              <img
-                class="card__delete-icon"
-                src="assets/images/delete.svg"
-                alt="Trash icon"
-              />
-            </button>
+            ></button>
           </div>
         </article>
       </li>
@@ -206,5 +188,3 @@
     <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>
-
-     
