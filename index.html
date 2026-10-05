@@ -60,6 +60,30 @@
         </button>
       </section>
 
+      <!-- DECK VIEW -->
+      <section class="gallery" id="deck-view">
+        <div class="gallery__header">
+          <h2 class="gallery__title"></h2>
+
+          <button
+            class="gallery__practice-btn"
+            type="button"
+          >
+            Practice
+          </button>
+        </div>
+
+        <ul class="gallery__list"></ul>
+
+        <button
+          class="gallery__new-card-btn"
+          type="button"
+          aria-label="Create a new card"
+        >
+          + New Card
+        </button>
+      </section>
+
       <!-- CAROUSEL -->
       <section class="carousel">
         <h2 class="carousel__title">
@@ -113,7 +137,7 @@
       </section>
     </main>
 
-    <!-- CARD TEMPLATE -->
+    <!-- DECK TEMPLATE -->
     <template id="deck-template">
       <li>
         <article class="card card_color_green">
@@ -144,6 +168,37 @@
       </li>
     </template>
 
+    <!-- FLASHCARD TEMPLATE -->
+    <template id="card-template">
+      <li>
+        <article class="card card_color_green">
+          <h3 class="card__title"></h3>
+
+          <div class="card__footer">
+            <button
+              class="card__flip-btn"
+              type="button"
+              aria-label="Flip card"
+            >
+              Flip
+            </button>
+
+            <button
+              class="card__delete-btn"
+              type="button"
+              aria-label="Delete card"
+            >
+              <img
+                class="card__delete-icon"
+                src="assets/images/delete.svg"
+                alt="Trash icon"
+              />
+            </button>
+          </div>
+        </article>
+      </li>
+    </template>
+
     <footer class="footer">
       <p class="footer__text">&copy; 2026 Jason Tong</p>
     </footer>
@@ -151,3 +206,5 @@
     <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>
+
+     
